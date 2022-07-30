@@ -35,9 +35,18 @@ https://github.com/the-Azrael/TaskSOLIDShop/blob/b203879d5ce45532a17d8a4f65c5128
 
 
 L - Liskov’s Substitution Principle (Принцип подстановки Барбары Лисков)
-
+https://github.com/the-Azrael/TaskSOLIDShop/blob/b203879d5ce45532a17d8a4f65c5128304fed762/src/main/java/Main.java#L45
+https://github.com/the-Azrael/TaskSOLIDShop/blob/b203879d5ce45532a17d8a4f65c5128304fed762/src/main/java/Main.java#L46
+Так как классы MIWTAuthorizeBuyer(Авторизация пользователя) и MIWTShowAssortment(Отображение ассортимента товара)
+являются наследниками класс MenuItemWithTree, они равнозначно заменяют (подставляются вместо) класса предка в методе добавления пунктов меню.
 
 I - Interface Segregation Principle (Принцип разделения интерфейса)
+https://github.com/the-Azrael/TaskSOLIDShop/blob/b203879d5ce45532a17d8a4f65c5128304fed762/src/main/java/Main.java#L49
+https://github.com/the-Azrael/TaskSOLIDShop/blob/b203879d5ce45532a17d8a4f65c5128304fed762/src/main/java/Main.java#L51
+https://github.com/the-Azrael/TaskSOLIDShop/blob/b203879d5ce45532a17d8a4f65c5128304fed762/src/main/java/Main.java#L53
+По сути каждый из этих объектов реализуют отдельные функции реализации интерфейса программы. 
+И по сути изменение реализации данных классов в отдельности не затронет общий функционал программы.
 
 
 D - Dependency Inversion Principle (Принцип инверсии зависимостей)
+
