@@ -1,0 +1,20 @@
+[
+	{
+		"id": 1,
+		"login": "IvanovII",
+		"pass": "vanyaYa",
+		"phoneNumber": "+79888888888"
+	},
+	{
+		"id": 2,
+		"login": "SidorovaSS",
+		"pass": "sidorovaKoza",
+		"phoneNumber": "+79666666666"
+	},
+	{
+		"id": 3,
+		"login": "PetrovPP",
+		"pass": "petrosyan",
+		"phoneNumber": "+79777777777"
+	}	
+]
