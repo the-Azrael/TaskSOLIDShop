@@ -8,13 +8,10 @@ public class Main {
     private static final BuyHistories mainBuyHistories = new BuyHistories(mainProductAssortment);
     private static final AuthorizationBuyer mainAuthorizationBuyer = new AuthorizationBuyer(mainBuyers);
     private static final MenuItemsWithTree mainMenu = new MenuItemsWithTree("Главное меню");
+    private static final EnterData enterData = new EnterData();
 
     public static ProductAssortment getMainProductAssortment() {
         return mainProductAssortment;
-    }
-
-    public static Buyers getMainBuyers() {
-        return mainBuyers;
     }
 
     public static AuthorizationBuyer getMainAuthorizationBuyer() {
@@ -36,8 +33,7 @@ public class Main {
     }
 
     private static void makeChoice() {
-        System.out.println("Выберите пункт меню");
-        mainMenu.executeMenuItem(GlobalScanner.getScannerInstance().nextInt());
+        mainMenu.executeMenuItem(enterData.enterIntData("Выберите пункт меню"));
     }
 
     private static void exit() {
@@ -49,17 +45,16 @@ public class Main {
         mainMenu.addChild(new MIWTAuthorizeBuyer("Авторизация", getMainAuthorizationBuyer()));
         mainMenu.addChild(new MIWTShowAssortment("Показать товары"));
         if (mainAuthorizationBuyer.isAuthorized()) {
+            Buyer currentBuyer = mainAuthorizationBuyer.getCurrentBuyer();
             mainMenu.addChild(new MIWTAddToBasket("Добавить товар в корзину",
-                    getMainBuyHistories().addBuyHistory(mainAuthorizationBuyer.getCurrentBuyer())));
+                    getMainBuyHistories().addBuyHistory(currentBuyer)));
             mainMenu.addChild(new MIWTRemoveFromBasket("Удалить из корзины",
-                    getMainBuyHistories().addBuyHistory(mainAuthorizationBuyer.getCurrentBuyer())));
+                    getMainBuyHistories().addBuyHistory(currentBuyer)));
             mainMenu.addChild(new MIWTShowBasket("Показать корзину",
-                    getMainBuyHistories().addBuyHistory(mainAuthorizationBuyer.getCurrentBuyer())));
+                    getMainBuyHistories().addBuyHistory(currentBuyer)));
             mainMenu.addChild(new MIWTDoPay("Оплатить товары",
-                    getMainBuyHistories().addBuyHistory(mainAuthorizationBuyer.getCurrentBuyer())));
-            mainMenu.addChild(new MIWTShowBuyHistory("История покупок",
-                    getMainBuyHistories(),
-                    mainAuthorizationBuyer.getCurrentBuyer()));
+                    getMainBuyHistories().addBuyHistory(currentBuyer)));
+            mainMenu.addChild(new MIWTShowBuyHistory("История покупок", getMainBuyHistories(), currentBuyer));
 
         }
         mainMenu.addChild(new MIWTExit("Выход"));

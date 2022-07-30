@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class MIWTAddToBasket extends MenuItemsWithTree {
-    private BuyHistory buyHistory;
-    private Scanner scanner = GlobalScanner.getScannerInstance();
+    private final BuyHistory buyHistory;
+    private final EnterData enterData = new EnterData();
 
     public MIWTAddToBasket(String name, BuyHistory buyHistory) {
         super(name);
@@ -10,13 +10,11 @@ public class MIWTAddToBasket extends MenuItemsWithTree {
     }
 
     private int enterID() {
-        System.out.println("Введите код продукта");
-        return scanner.nextInt();
+        return enterData.enterIntData("Введите код продукта");
     }
 
     private int enterQuantity() {
-        System.out.println("Введите количество единиц");
-        return scanner.nextInt();
+        return enterData.enterIntData("Введите количество единиц");
     }
 
     @Override
