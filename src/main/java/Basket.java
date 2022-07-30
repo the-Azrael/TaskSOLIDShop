@@ -2,9 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Basket {
-    private static final int ZERO = 0;
-    private ProductAssortment productAssortment;
-    private List<ProductWithQuantity> productList = new ArrayList<>();
+    private final ProductAssortment productAssortment;
+    private final List<ProductWithQuantity> productList = new ArrayList<>();
 
     public Basket(ProductAssortment productAssortment) {
         this.productAssortment = productAssortment;
@@ -51,7 +50,7 @@ public class Basket {
     public void show() {
         if (!getProductList().isEmpty()) {
             System.out.println("Наименование; Цена; Кол-во; Стоимость");
-            getProductList().stream().forEach(System.out::println);
+            getProductList().forEach(System.out::println);
             System.out.println("Итого: " + getCost() + " руб.");
         } else {
             System.out.println("Корзина пуста");
